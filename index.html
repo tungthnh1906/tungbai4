@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div id="darkToggle">🌙 Dark Mode</div>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#extras">Extras</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! This is my portfolio designed for the Coursera project.
+            It is responsive, W3 validated, and styled with custom CSS.</p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="projects">
+            <div class="card">
+                <h3>Project 1</h3>
+                <p>A sample project description.</p>
+            </div>
+
+            <div class="card">
+                <h3>Project 2</h3>
+                <p>This demonstrates responsive layout using CSS Grid.</p>
+            </div>
+
+            <div class="card">
+                <h3>Project 3</h3>
+                <p>Styled with hover animation (extra #1).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="extras">
+        <h2>Extras Included</h2>
+        <ul>
+            <li>✔ Hover card animations</li>
+            <li>✔ Dark mode toggle</li>
+            <li>✔ Smooth scrolling</li>
+            <li>✔ Simple JavaScript form validation</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+    </section>
+
+    <footer>
+        © 2025 My Portfolio – Coursera Assignment
+    </footer>
+
+    <script>
+        document.getElementById("darkToggle").onclick = function () {
+            document.body.classList.toggle("dark");
+        };
+
+        document.querySelectorAll("nav a").forEach(a => {
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href"))
+                    .scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (!name || !email) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+
+            alert("Message sent!");
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
